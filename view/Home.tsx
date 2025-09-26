@@ -1,7 +1,7 @@
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { auth } from '../firebase';
 import { useNavigation } from '@react-navigation/native';
-import styles from '../estilo';
+import styles from '../assets/style/estilo';
 
 export default function Home() {
 

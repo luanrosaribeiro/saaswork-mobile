@@ -32,6 +32,16 @@ export default StyleSheet.create({
     borderRadius: 10,
     marginBottom: 10
   },
+  picker: {
+    backgroundColor: '#edededff',
+    borderRadius: 10,
+    fontSize:10,
+    marginBottom: 10,
+    padding: 0
+  },
+  inputPicker: {
+    color: '#0000008c'
+  },
   buttonView: {
     width: '80%'
   },

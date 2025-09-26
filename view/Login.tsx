@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, KeyboardAvoidingView, TouchableOpacity, ImageBackground } from 'react-native';
 import { auth } from '../firebase';
 import { useNavigation } from '@react-navigation/native';
-import styles from '../estilo';
+import styles from '../assets/style/estilo';
+import { browserLocalPersistence, setPersistence } from 'firebase/auth';
 
 export default function Login() {
   const[email, setEmail] = useState('')
@@ -10,19 +11,26 @@ export default function Login() {
 
   const navigation = useNavigation()
 
+  useEffect(() => {
+    const logado = auth.onAuthStateChanged( user => {
+      if(user) navigation.replace('Menu');
+    })
+  })
+
   const logar = () => {
     auth
     .signInWithEmailAndPassword(email, senha)
     .then( userCredentials => {
       console.log("Logado como: " + userCredentials.user?.email)
       navigation.replace('Menu')
+      
     })
     .catch(erro => alert(erro.message))
   }
 
   return (
     <KeyboardAvoidingView behavior='padding' style={styles.container}>
-      <ImageBackground source={require('../assets/back.png')} resizeMode='stretch' style={styles.container}>
+      <ImageBackground source={require('../assets/images/back.png')} resizeMode='stretch' style={styles.container}>
         <Text style={styles.titulo}>TELA DE LOGIN</Text>
 
         <View style={styles.inputView}>

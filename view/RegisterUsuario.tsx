@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Text, View, TextInput, KeyboardAvoidingView, TouchableOpacity, ImageBackground, Alert} from 'react-native';
 import { auth, firestore } from '../firebase';
 import { useNavigation } from '@react-navigation/native';
-import { Usuario } from '../model/Usuario';
-import styles from '../estilo';
+import { Usuario } from '../model/Usuarios';
+import styles from '../assets/style/estilo';
 
-export default function Register() {
+export default function RegisterUsuario() {
   const [formUsuario, setFormUsuario] = useState<Partial<Usuario>>({})
   const [confSenha, setConfSenha] = useState('')
   const refUsuario = firestore.collection("Usuario");
@@ -37,7 +37,7 @@ export default function Register() {
 
   return (
     <KeyboardAvoidingView behavior='padding' style={styles.container}>
-      <ImageBackground source={require('../assets/back2.png')} resizeMode='stretch' style={styles.container}>
+      <ImageBackground source={require('../assets/images/back2.png')} resizeMode='stretch' style={styles.container}>
         <Text style={styles.titulo}>CADASTRO DE USUÁRIOS</Text>
 
         <View style={styles.inputView}>

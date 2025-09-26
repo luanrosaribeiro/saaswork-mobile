@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 import Login from './view/Login';
-import Register from './view/Register';
+import RegisterUsuario from './view/RegisterUsuario';
 import Menu from './view/Menu'
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -14,7 +14,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Login'  component={Login} options={{ headerShown: false }} />
-        <Stack.Screen name='Register' component={Register} options={{ headerShown: false }}/>
+        <Stack.Screen name='RegisterUsuario' component={RegisterUsuario} options={{ headerShown: false }}/>
         <Stack.Screen name='Menu' component={Menu} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
