@@ -65,5 +65,14 @@ export default StyleSheet.create({
   },
   buttonSecText: {
     color: '#354f52'
+  },
+  cardLista: {
+    marginTop: 20,
+    borderWidth: 1,
+    borderRadius: 6,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 80,
+    paddingRight: 80
   }
 });
