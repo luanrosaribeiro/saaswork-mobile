@@ -66,13 +66,27 @@ export default StyleSheet.create({
   buttonSecText: {
     color: '#354f52'
   },
+  lista: {
+    width:"90%"
+  },
+  alinharItens: {
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'baseline'
+  },
   cardLista: {
     marginTop: 20,
     borderWidth: 1,
     borderRadius: 6,
     paddingTop: 5,
-    paddingBottom: 5,
-    paddingLeft: 80,
-    paddingRight: 80
+    paddingBottom: 5
+  },
+  cardListaTitulo: {
+    fontSize: 18,
+    textAlign: "center",
+    fontWeight: 800,
+  },
+  cardListaText: {
+
   }
 });

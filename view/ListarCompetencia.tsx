@@ -40,20 +40,24 @@ export default function RegisterCompetencia() {
     
         <View style={styles.container}>
             <FlatList
+                style={styles.lista}
                 data={competencias}
                 renderItem={ ({item}) => (
                     <View style={styles.cardLista}>
                         <TouchableOpacity onPress={() => mostrarDetalhes(item.id)}>
-                            <Text>{item.nome}</Text>
+                            <Text style={styles.cardListaTitulo}>{item.nome}</Text>
                         </TouchableOpacity>
 
                         {expandido == item.id && (
                             <View>
-                                <Text>{item.instituicao}</Text>
-                                <Text>{item.dt_final}</Text>
-                                <Text>{item.dt_inicio}</Text>
-                                <Text>{item.carga_horaria}</Text>
-                                <Text>{item.tipo}</Text>
+                                <View style={styles.alinharItens}>
+                                    <Text style={styles.cardListaText}>Instituição: </Text>
+                                    <Text>{item.instituicao}</Text>
+                                </View>
+                                <Text style={styles.cardListaText}>Data de Inicio: </Text><Text>{item.dt_inicio}</Text>
+                                <Text style={styles.cardListaText}>Data de Finalização: </Text><Text>{item.dt_final}</Text>
+                                <Text style={styles.cardListaText}>Carga Horária</Text><Text>{item.carga_horaria}</Text>
+                                <Text style={styles.cardListaText}>Tipo: </Text><Text>{item.tipo}</Text>
                             </View>
 
                         )}
