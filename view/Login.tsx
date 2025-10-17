@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, KeyboardAvoidingView, TouchableOpacity, ImageBackground } from 'react-native';
+import { Text, View, KeyboardAvoidingView, TouchableOpacity, ImageBackground } from 'react-native';
+import { TextInput } from 'react-native-paper';
 import { auth } from '../firebase';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../assets/style/estilo';
@@ -35,15 +36,16 @@ export default function Login() {
 
         <View style={styles.inputView}>
           <TextInput
-            placeholder='E-mail'
+            label='E-mail'
             onChangeText={texto => setEmail(texto)}
             style={styles.input}
           />
 
           <TextInput
-            placeholder='Senha'
+            label='Senha'
             onChangeText={texto => setSenha(texto)}
             secureTextEntry={true}
+            right={<TextInput.Icon icon="eye" />}
             style={styles.input}
           />
         </View>      

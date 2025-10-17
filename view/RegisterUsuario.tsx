@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { Text, View, TextInput, KeyboardAvoidingView, TouchableOpacity, ImageBackground, Alert} from 'react-native';
+import { Text, View, KeyboardAvoidingView, TouchableOpacity, ImageBackground, Alert} from 'react-native';
+import { TextInput } from 'react-native-paper';
 import { auth, firestore } from '../firebase';
+import { Picker } from '@react-native-picker/picker';
 import { useNavigation } from '@react-navigation/native';
 import { Usuario } from '../model/Usuarios';
 import styles from '../assets/style/estilo';
@@ -24,7 +26,8 @@ export default function RegisterUsuario() {
               id: idUsuario,
               nome: formUsuario.nome,
               email: formUsuario.email,
-              fone: formUsuario.fone
+              fone: formUsuario.fone,
+              tipo: formUsuario.tipo
             })
             navigation.replace('Home')
           }
@@ -47,7 +50,6 @@ export default function RegisterUsuario() {
               ...formUsuario,
               nome: valor
             })}
-            style={styles.input}
           />
           <TextInput 
             placeholder='Email' 
@@ -55,7 +57,6 @@ export default function RegisterUsuario() {
               ...formUsuario,
               email: valor
             })}
-            style={styles.input}      
           />
 
           <TextInput 
@@ -64,8 +65,21 @@ export default function RegisterUsuario() {
               ...formUsuario,
               fone: valor
             })}
-            style={styles.input}
           />
+          <View style={styles.picker}>
+            <Picker 
+              mode='dropdown' 
+              style={styles.inputPicker}
+              onValueChange={valor => setFormUsuario({
+                ...formUsuario,
+                tipo: valor
+              })}
+            >
+              <Picker.Item label='Você é empresa ou estudante?' value=''/>
+              <Picker.Item label='Estudante' value='estudante'/>
+              <Picker.Item label='Empresa' value='Empresa'/>
+            </Picker>
+          </View>
           <TextInput 
             placeholder='Senha' 
             onChangeText={valor => setFormUsuario({
@@ -73,13 +87,11 @@ export default function RegisterUsuario() {
               senha: valor
             })}
             secureTextEntry={true}
-            style={styles.input}
           />
           <TextInput
             placeholder='Confirme sua Senha'
             onChangeText={valor => setConfSenha(valor)}
             secureTextEntry={true}
-            style={styles.input}
           />
         </View>
 

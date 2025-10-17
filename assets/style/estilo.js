@@ -27,9 +27,6 @@ export default StyleSheet.create({
     marginBottom: 40
   },
   input: {
-    backgroundColor: '#edededff',
-    padding: 15,
-    borderRadius: 10,
     marginBottom: 10
   },
   picker: {
