@@ -9,6 +9,7 @@ import { browserLocalPersistence, setPersistence } from 'firebase/auth';
 export default function Login() {
   const[email, setEmail] = useState('')
   const[senha, setSenha] = useState('')
+  const [showSenha, setShowSenha] = useState(false);
 
   const navigation = useNavigation()
 
@@ -31,7 +32,7 @@ export default function Login() {
 
   return (
     <KeyboardAvoidingView behavior='padding' style={styles.container}>
-      <ImageBackground source={require('../assets/images/back.png')} resizeMode='stretch' style={styles.container}>
+      <ImageBackground source={require('../assets/images/back_login.png')} resizeMode='stretch' style={styles.container}>
         <Text style={styles.titulo}>TELA DE LOGIN</Text>
 
         <View style={styles.inputView}>
@@ -39,14 +40,21 @@ export default function Login() {
             label='E-mail'
             onChangeText={texto => setEmail(texto)}
             style={styles.input}
+            selectionColor='#ebedda'
           />
 
           <TextInput
             label='Senha'
             onChangeText={texto => setSenha(texto)}
-            secureTextEntry={true}
-            right={<TextInput.Icon icon="eye" />}
+            secureTextEntry={!showSenha}
+            right={
+              <TextInput.Icon
+                icon={showSenha ? 'eye-off' : 'eye'}
+                onPress={() => setShowSenha(!showSenha)}
+              />
+            }
             style={styles.input}
+            selectionColor='#ebedda'
           />
         </View>      
 

@@ -5,6 +5,9 @@ export class Usuario {
     public fone: string;
     public senha: string;
     public tipo: string;
+    public cpf: string;
+    public cnpj: string;
+    public dt_nascimento: string;
 
     constructor(objeto?: Partial<Usuario>) {
         if(objeto){
@@ -14,6 +17,9 @@ export class Usuario {
             this.fone = objeto.fone
             this.senha = objeto.senha
             this.tipo = objeto.tipo
+            this.cpf = objeto.cpf
+            this.cnpj = objeto.cnpj
+            this.dt_nascimento = objeto.dt_nascimento
         }
     }
 
@@ -24,7 +30,10 @@ export class Usuario {
             "email" : "${ this.email }",
             "fone" : "${ this.fone }",
             "senha" : "${ this.senha }",
-            "tipo" : "${ this.tipo }"
+            "tipo" : "${ this.tipo }",
+            "cpf" : "${ this.cpf }",
+            "cnpj" : "${ this.cnpj }",
+            "dt_nascimento" : "${ this.dt_nascimento }"
         }`
         return objeto
     }
@@ -36,7 +45,10 @@ export class Usuario {
             email: this.email,
             fone: this.fone,
             senha: this.senha,
-            tipo: this.tipo
+            tipo: this.tipo,
+            cpf: this.cpf,
+            cnpj: this.cnpj,
+            dt_nascimento: this.dt_nascimento
         }
         return usuario
     }
