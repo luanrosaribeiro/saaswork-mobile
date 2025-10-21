@@ -46,9 +46,9 @@ export class Usuario {
             fone: this.fone,
             senha: this.senha,
             tipo: this.tipo,
-            cpf: this.cpf,
-            cnpj: this.cnpj,
-            dt_nascimento: this.dt_nascimento
+            cpf: this.cpf || '',
+            cnpj: this.cnpj || '',
+            dt_nascimento: this.dt_nascimento || ''
         }
         return usuario
     }

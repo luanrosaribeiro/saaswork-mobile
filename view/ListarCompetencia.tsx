@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
-import { Text, View, TextInput, KeyboardAvoidingView, TouchableOpacity, ImageBackground, Alert, FlatList} from 'react-native';
+import { View, KeyboardAvoidingView, TouchableOpacity, ImageBackground, Alert, FlatList} from 'react-native';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import { Picker } from '@react-native-picker/picker';
 import { useNavigation } from '@react-navigation/native';
 import { Competencia } from '../model/Competencias';
 import styles from '../assets/style/estilo';
 import { auth, firestore } from '../firebase';
+import { Icon } from 'react-native-paper';
 
-export default function RegisterCompetencia() {
+export default function ListarCompetencia() {
 
     useEffect( () => {
         listar();
     });
-
+    
+    const navigation = useNavigation()
     const [competencias, setCompetencias] = useState<Competencia[]>([]);
     const [expandido, setExpandido] = useState <String | null>(null);
     const refCompetencia = firestore.collection("Usuario").doc(auth.currentUser?.uid).collection("Competencia");
@@ -64,6 +66,15 @@ export default function RegisterCompetencia() {
                     </View>
                 )}
             />
+            <View style={styles.buttonViewFloating}>
+                <TouchableOpacity style={styles.buttonFloating} onPress={() => navigation.navigate('RegisterCompetencia')}>
+                    <Icon 
+                        source="plus"
+                        color='#fff'
+                        size={45}
+                    />
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }

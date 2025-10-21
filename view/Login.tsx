@@ -40,7 +40,7 @@ export default function Login() {
             label='E-mail'
             onChangeText={texto => setEmail(texto)}
             style={styles.input}
-            selectionColor='#ebedda'
+            activeUnderlineColor='#354f52'
           />
 
           <TextInput
@@ -54,7 +54,7 @@ export default function Login() {
               />
             }
             style={styles.input}
-            selectionColor='#ebedda'
+            activeUnderlineColor='#354f52'
           />
         </View>      
 
@@ -63,7 +63,7 @@ export default function Login() {
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.button, styles.buttonSec]} onPress={() => navigation.replace('Register')}>
+          <TouchableOpacity style={[styles.button, styles.buttonSec]} onPress={() => navigation.replace('RegisterUsuario')}>
             <Text style={[styles.buttonText, styles.buttonSecText]}>Registrar</Text>
           </TouchableOpacity>
         </View>

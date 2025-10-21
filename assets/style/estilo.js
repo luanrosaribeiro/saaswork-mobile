@@ -15,6 +15,13 @@ export default StyleSheet.create({
     justifyContent: 'center',
     width: '100%'
   },
+  login:{
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    paddingTop: 180
+  },
   titulo: {
     fontSize: 20,
     fontWeight: 700,
@@ -27,7 +34,8 @@ export default StyleSheet.create({
     marginBottom: 40
   },
   input: {
-    marginBottom: 10
+    marginBottom: 10,
+    color: '#354f52'
   },
   picker: {
     backgroundColor: '#edededff',
@@ -42,12 +50,26 @@ export default StyleSheet.create({
   buttonView: {
     width: '80%'
   },
+  buttonViewFloating: {
+    flex: 1,
+    width: '80%',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end'
+  },
   button: {
     backgroundColor: '#354f52',
     width: '100%',
     padding: 15,
     borderRadius: 10,
     marginBottom: 10,
+    alignItems: 'center'
+  },
+  buttonFloating: {
+    backgroundColor: '#354f52',
+    width: '20%',
+    padding: 5,
+    borderRadius: 10,
+    marginBottom: 50,
     alignItems: 'center'
   },
   buttonText: {

@@ -149,7 +149,7 @@ export default function RegisterCompetencia() {
             <Text style={styles.buttonText}>Cadastrar</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.button, styles.buttonSec]} onPress={() => navigation.replace('Página Inicial')}>
+          <TouchableOpacity style={[styles.button, styles.buttonSec]} onPress={() => navigation.navigate('ListarCompetencia')}>
             <Text style={[styles.buttonText, styles.buttonSecText]}>Voltar</Text>
           </TouchableOpacity>
         </View>
